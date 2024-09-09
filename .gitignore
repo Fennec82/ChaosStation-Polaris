@@ -10,7 +10,6 @@ vchat.db*
 *.backup
 *.before
 *.pyc
-data/
 cfg/
 
 node_modules/
