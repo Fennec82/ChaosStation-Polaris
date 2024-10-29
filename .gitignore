@@ -11,6 +11,6 @@ vchat.db*
 *.before
 *.pyc
 cfg/
-
+/data/**/*
 node_modules/
 package-lock.json
