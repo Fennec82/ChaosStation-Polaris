@@ -8,8 +8,8 @@ GLOBAL_LIST_INIT(vchatFiles, list(
 	"code/modules/vchat/js/polyfills.js",
 	"code/modules/vchat/js/vue.min.js",
 	"code/modules/vchat/js/vchat.js",
-	"code/modules/vchat/js/vchat_516.js",
-))
+	"code/modules/vchat/js/vchat_516.js")
+)
 
 // The to_chat() macro calls this proc
 /proc/__to_vchat(var/target, var/message)
