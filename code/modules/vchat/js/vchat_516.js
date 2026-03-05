@@ -1,4 +1,4 @@
-//The 'V' is for 'VORE' but you can pretend it's for Vue.js if you really want.
+//The 'V' is for 'VOREstation' but you can pretend it's for Vue.js if you really want.
 
 (function(){
     var oldLog = console.log;

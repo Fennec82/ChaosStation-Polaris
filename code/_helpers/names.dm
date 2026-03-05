@@ -93,11 +93,12 @@ var/global/religion_name = null
 
 
 	if (config && config.server_name)
-		world.name = "[config.server_name]: [name]"
+		if(findtext(config.server_name, ":"))
+			world.name = config.server_name
+		else
+			world.name = "[config.server_name]: [new_station_name]"
 	else
 		world.name = new_station_name
-
-	return new_station_name
 
 // Is this even used?
 /proc/world_name(var/name)
@@ -105,11 +106,12 @@ var/global/religion_name = null
 	using_map.station_name = name
 
 	if (config && config.server_name)
-		world.name = "[config.server_name]: [name]"
+		if(findtext(config.server_name, ":"))
+			world.name = config.server_name
+		else
+			world.name = "[config.server_name]: [name]"
 	else
 		world.name = name
-
-	return name
 
 var/global/syndicate_name = null
 /proc/syndicate_name()
