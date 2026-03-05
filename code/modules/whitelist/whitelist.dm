@@ -28,11 +28,22 @@
 		if(fexists(filename))
 			// Load the whitelist entries from file, or empty string if empty.`
 			. = list()
-			for(var/T in json_decode(file2text(filename) || ""))
-				T = text2path(T)
-				if(!ispath(T))
-					continue
-				.[T] = TRUE
+			var/whitelist_text = file2text(filename)
+			if(!length(whitelist_text))
+				whitelist_text = "[]"
+			var/list/decoded_whitelist = null
+			try
+				decoded_whitelist = json_decode(whitelist_text)
+			catch(var/exception/E)
+				error("Exception when parsing whitelist file [filename]: [E]. Recreating file.")
+				text2file("[]", filename)
+				decoded_whitelist = list()
+			if(!islist(decoded_whitelist))
+				decoded_whitelist = list()
+			for(var/T in decoded_whitelist)
+				var/path = text2path(T)
+				if(path)
+					.[path] = TRUE
 
 		// Something was removing an entry from the whitelist and interrupted mid-overwrite.
 		else if(fexists(filename + ".tmp") && fcopy(filename + ".tmp", filename))
