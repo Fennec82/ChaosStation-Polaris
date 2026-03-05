@@ -41,6 +41,9 @@
 			if(!islist(decoded_whitelist))
 				decoded_whitelist = list()
 			for(var/T in decoded_whitelist)
+				var/path = text2path(T)
+				if(path)
+					.[path] = TRUE
 
 		// Something was removing an entry from the whitelist and interrupted mid-overwrite.
 		else if(fexists(filename + ".tmp") && fcopy(filename + ".tmp", filename))

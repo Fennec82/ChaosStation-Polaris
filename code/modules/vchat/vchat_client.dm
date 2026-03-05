@@ -7,7 +7,7 @@ GLOBAL_LIST_INIT(vchatFiles, list(
 	"code/modules/vchat/css/ss13styles.css",
 	"code/modules/vchat/js/polyfills.js",
 	"code/modules/vchat/js/vue.min.js",
-	"code/modules/vchat/js/vchat.js",
+//	"code/modules/vchat/js/vchat.js",
 	"code/modules/vchat/js/vchat_516.js"
 ))
 
@@ -272,7 +272,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("data/iconCache.sav")) //Cache of ic
 /proc/icon2base64(var/icon/icon, var/iconKey = "misc")
 	if (!isicon(icon)) return FALSE
 
-var/savefile/cache = GLOB.iconCache
+	var/savefile/cache = GLOB.iconCache
 	if(!istype(cache))
 		fdel("data/iconCache.sav")
 		cache = new("data/iconCache.sav")
